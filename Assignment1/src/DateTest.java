@@ -42,8 +42,8 @@ public class DateTest {
 	}
 
 	@Test
-	public void testMonthOK() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-		Method method = date.getClass().getDeclaredMethod("monthOK", String.class);
+	public void testMonthCheck() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+		Method method = date.getClass().getDeclaredMethod("monthCheck", String.class);
 		method.setAccessible(true);
 		boolean result = (boolean) method.invoke(date, test_month);
 

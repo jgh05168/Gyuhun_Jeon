@@ -37,7 +37,7 @@ public class Date {
 	}
 
 	public void setDate(int monthInt, int day, int year) {
-		if (dateOK(monthInt, day, year)) {
+		if (dateCheck(monthInt, day, year)) {
 			this.month = monthString(monthInt);
 			this.day = day;
 			this.year = year;
@@ -48,7 +48,7 @@ public class Date {
 	}
 
 	public void setDate(String monthString, int day, int year) {
-		if (dateOK(monthString, day, year)) {
+		if (dateCheck(monthString, day, year)) {
 			this.month = monthString;
 			this.day = day;
 			this.year = year;
@@ -138,7 +138,7 @@ public class Date {
 			var monthInput = keyboard.next();
 			var dayInput = keyboard.nextInt();
 			var yearInput = keyboard.nextInt();
-			if (dateOK(monthInput, dayInput, yearInput)) {
+			if (dateCheck(monthInput, dayInput, yearInput)) {
 				setDate(monthInput, dayInput, yearInput);
 				tryAgain = false;
 			} else
@@ -146,16 +146,16 @@ public class Date {
 		}
 	}
 
-	private boolean dateOK(int monthInt, int dayInt, int yearInt) {
+	private boolean dateCheck(int monthInt, int dayInt, int yearInt) {
 		return ((monthInt >= 1) && (monthInt <= 12) && (dayInt >= 1) && (dayInt <= 31) && (yearInt >= 1000)
 				&& (yearInt <= 9999));
 	}
 
-	private boolean dateOK(String monthString, int dayInt, int yearInt) {
-		return (monthOK(monthString) && (dayInt >= 1) && (dayInt <= 31) && (yearInt >= 1000) && (yearInt <= 9999));
+	private boolean dateCheck(String monthString, int dayInt, int yearInt) {
+		return (monthCheck(monthString) && (dayInt >= 1) && (dayInt <= 31) && (yearInt >= 1000) && (yearInt <= 9999));
 	}
 
-	private boolean monthOK(String month) {
+	private boolean monthCheck(String month) {
 		return switch (month) {
 		case "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" -> true;
 		default -> false;
