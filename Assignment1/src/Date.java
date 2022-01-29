@@ -24,18 +24,6 @@ public class Date {
 		setDate(1, 1, year);
 	}
 
-	public Date(Date aDate) {
-		if (aDate == null)// Not a real date.
-		{
-			System.out.println("Fatal Error.");
-			System.exit(0);
-		}
-
-		month = aDate.month;
-		day = aDate.day;
-		year = aDate.year;
-	}
-
 	public void setDate(int monthInt, int day, int year) {
 		if (dateCheck(monthInt, day, year)) {
 			this.month = monthString(monthInt);
@@ -56,34 +44,6 @@ public class Date {
 			System.out.println("Fatal Error");
 			System.exit(0);
 		}
-	}
-
-	public void setDate(int year) {
-		setDate(1, 1, year);
-	}
-
-	public void setYear(int year) {
-		if ((year < 1000) || (year > 9999)) {
-			System.out.println("Fatal Error");
-			System.exit(0);
-		} else
-			this.year = year;
-	}
-
-	public void setMonth(int monthNumber) {
-		if ((monthNumber <= 0) || (monthNumber > 12)) {
-			System.out.println("Fatal Error");
-			System.exit(0);
-		} else
-			month = monthString(monthNumber);
-	}
-
-	public void setDay(int day) {
-		if ((day <= 0) || (day > 31)) {
-			System.out.println("Fatal Error");
-			System.exit(0);
-		} else
-			this.day = day;
 	}
 
 	public int getMonth() {
@@ -118,15 +78,6 @@ public class Date {
 
 	public String toString() {
 		return (month + " " + day + ", " + year);
-	}
-
-	public boolean equals(Date otherDate) {
-		return ((month.equals(otherDate.month)) && (day == otherDate.day) && (year == otherDate.year));
-	}
-
-	public boolean precedes(Date otherDate) {
-		return ((year < otherDate.year) || (year == otherDate.year && getMonth() < otherDate.getMonth())
-				|| (year == otherDate.year && month.equals(otherDate.month) && day < otherDate.day));
 	}
 
 	public void readInput() {

@@ -28,6 +28,14 @@ public class DateTest {
 	}
 
 	@Test
+	public void testSetDate3() {
+		Date date = new Date(testYear);
+		Assert.assertEquals(1, date.getMonth());
+		Assert.assertTrue(1 == date.getDay());
+		Assert.assertTrue(testYear == date.getYear());
+	}
+
+	@Test
 	public void testGetMonth() {
 		Assert.assertEquals(testMonth, date.getMonth());
 	}
